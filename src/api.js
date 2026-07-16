@@ -9,7 +9,9 @@ const db = require("./database");
 
 function startApi() {
   const app = express();
-
+  
+  app.set("trust proxy", 1); 
+  
   // Batasi biar nggak gampang di-brute-force nebak key
   const limiter = rateLimit({
     windowMs: 60 * 1000,
